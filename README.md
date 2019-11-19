@@ -12,3 +12,11 @@ Pour en sortir utilisez: ctrl + p + q
 
 Une fois que vous avez trouvé les commandes a effectué, vous pouvez les ajouter à la suite dans le fichier NomDuContainer.sh.
 Vous pouvez aussi copier des fichiers sur un container avec "sudo docker cp src NomDuContainer:dest", ajoutez cette ligne dans le fichier NomDuCOntainer.sh.
+
+Le routeur parfeu est connecté à la machine host (le pc sur lequel sont lancé les dockers), pour communiquer avec lui:
+
+(sudo ip addr flush dev docker0)
+sudo ip addr add 120.0.48.1/24 dev docker0
+
+ping 120.0.48.2 devrait fonctionner.
+
