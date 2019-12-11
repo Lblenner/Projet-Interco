@@ -1,0 +1,7 @@
+parfeu -br1 //eth1 -br2 //eth2
+box  -br2 //eth1
+web -br1 //eth1
+dns -br1
+ftp -br1
+voip -br1
+EndLine
