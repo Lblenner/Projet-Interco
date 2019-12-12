@@ -1,12 +1,10 @@
 # Projet-Interco
 
-Utilisez ./install pour installer docker et pipework. Vous pouvez aussi installer docker de votre coté si ça ne marche pas ou si vous avez envie. 
-
-Pour l'instant pipework n'est pas utile.
+Utilisez ./install pour installer docker. Vous pouvez aussi installer docker de votre coté si ça ne marche pas ou si vous avez envie. 
 
 Les fichiers ici représente la zone entreprise. Vous avez la liste des machines dans ListStation3.
 
-Pour lancer les dockers faites ./groupe3, une fois qui vous avez fini fermez tout vos container et réseaux avec ./clean.
+Pour lancer les dockers faites ./NomDossier, une fois qui vous avez fini fermez tout vos container et réseaux avec ./clean.
 Une fois les containers lancé, vous pouvez rentrer dans un container avec "sudo docker attach #NomDuContainer" (box,parfeu,web...)
 Pour en sortir utilisez: ctrl + p + q
 
