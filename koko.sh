@@ -19,3 +19,5 @@ do
     echo $1
      
 done < listeStation3
+
+tshark -i ethX -P
