@@ -1,4 +1,4 @@
-parfeu -br1 //eth1 -br2 //eth2
+parefeu -br1 //eth1 -br2 //eth2
 box  -br2 //eth1
 web -br1 //eth1
 dns -br1
