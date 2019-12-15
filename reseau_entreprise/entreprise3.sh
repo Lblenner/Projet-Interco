@@ -10,7 +10,7 @@ while read line;
 do
     set -- $line
 
-    sudo docker run -dit --name $1 --cap-add=NET_ADMIN debian;
+    sudo docker run -dit --name $1 --cap-add=NET_ADMIN debian_custom;
 
     for word in $line
     do
