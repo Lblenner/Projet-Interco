@@ -1,16 +1,17 @@
 #!/bin/bash
 
+#Creation des sous réseaux
 while read line;
 do
     sudo docker network create $line
 done < listeBridge3
 
-
+#Création des containers
 while read line;
 do
     set -- $line
 
-    sudo docker run -dit --name $1 --cap-add=NET_ADMIN debianwire;
+    sudo docker run -dit --name $1 --privileged --cap-add=NET_ADMIN debian_interco;
 
     for word in $line
     do
