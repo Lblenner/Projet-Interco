@@ -1,6 +1,6 @@
-RE -br1 //eth1
-RSE -br1 //eth1 -br3 //eth2
-RU -br1 //eth1 -br2 //eth2
-RSU -br2 //eth1 -br3 //eth2
-RI -br1 //eth1 
+RE -ibr1 //eth1
+RSE -ibr1 //eth1 -ibr3 //eth2
+RU -ibr1 //eth1 -ibr2 //eth2
+RSU -ibr2 //eth1 -ibr3 //eth2
+RI -ibr1 //eth1 
 EndLine

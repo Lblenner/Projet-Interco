@@ -1,7 +1,7 @@
-parefeu -br1 //eth1 -br2 //eth2
-box  -br2 //eth1
-web -br1 //eth1
-dns -br1
-ftp -br1
-voip -br1
+parefeu -ebr1 //eth1 -ebr2 //eth2
+box  -ebr2 //eth1
+web -ebr1 //eth1
+dns -ebr1
+ftp -ebr1
+voip -ebr1
 EndLine
