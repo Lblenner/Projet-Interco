@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo docker exec ftp bash -c "
-    ip route add default via 120.0.48.7"
+sudo docker exec ftp bash -c "ip route del default
+    ip route add default via 120.0.48.3"

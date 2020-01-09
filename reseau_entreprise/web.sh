@@ -20,5 +20,6 @@ sudo docker exec web bash -c "apt-get update;
         # Autoriser tcp sur le port 80
         iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT;
         iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT;
-
-    ip route add default via 120.0.48.4"
+    
+    ip route del default
+    ip route add default via 120.0.48.3"
