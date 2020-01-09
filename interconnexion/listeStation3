@@ -1,6 +1,6 @@
-RE -ibr1 //eth1
-RSE -ibr1 //eth1 -ibr3 //eth2
-RU -ibr1 //eth1 -ibr2 //eth2
-RSU -ibr2 //eth1 -ibr3 //eth2
-RI -ibr1 //eth1 
+RE -ibr1@120.0.51.2 //eth1
+RSE -ibr1@120.0.51.3 //eth1 -ibr3@120.0.49.3 //eth2
+RU -ibr1@120.0.51.4 //eth1 -ibr2@120.0.50.2 //eth2
+RSU -ibr2@120.0.50.3 //eth1 -ibr3@120.0.49.2 //eth2
+RI -ibr1@120.0.51.5 //eth1 
 EndLine

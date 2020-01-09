@@ -2,7 +2,10 @@
 
 while read line;
 do
-    sudo docker network create $line
+    set -- $line
+    
+    sudo docker network create -d bridge --subnet $2 $1
+
 done < listeBridge3
 
 
@@ -17,7 +20,7 @@ do
 
         if [ ${word:0:1} = "-" ]
         then
-            sudo docker network connect ${word:1} $1
+            sudo docker network connect --ip ${word:6} ${word:1:4} $1
         fi
 
     done

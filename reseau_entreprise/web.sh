@@ -2,8 +2,6 @@
 
 sudo docker exec web bash -c "apt-get update;
     apt-get install -y nginx;
-    ip addr flush dev eth1;
-    ip addr flush dev eth0;
     service nginx start;
     
     # Firewall
@@ -23,5 +21,4 @@ sudo docker exec web bash -c "apt-get update;
         iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT;
         iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT;
 
-    ip addr add 120.0.48.4/24 dev eth1;
     ip route add default via 120.0.48.4"

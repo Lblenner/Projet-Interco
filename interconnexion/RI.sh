@@ -2,9 +2,7 @@
 
 sudo docker cp daemons RI:/etc/quagga/;
 sudo docker cp zebra.conf RI:/etc/quagga/;
-sudo docker exec RI bash -c "ip addr flush dev eth0;
-    ip addr flush dev eth1;
-    ip addr add 120.0.51.1/24 dev eth1;
+sudo docker exec RI bash -c "
     touch /etc/quagga/ospfd.conf;
     echo 'hostname RI' >> /etc/quagga/ospfd.conf;
     echo 'router ospf' >> /etc/quagga/ospfd.conf;
