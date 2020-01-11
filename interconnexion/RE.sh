@@ -3,8 +3,6 @@
 sudo docker cp daemons RE:/etc/quagga/;
 sudo docker cp zebra.conf RE:/etc/quagga/;
 sudo docker exec RE bash -c "
-    ip route add 120.0.48.0/24 via 120.0.53.3;
-    ip route add 120.0.52.0/24 via 120.0.53.3;
     touch /etc/quagga/ospfd.conf;
     echo 'hostname RE' >> /etc/quagga/ospfd.conf;
     echo 'router ospf' >> /etc/quagga/ospfd.conf;
