@@ -1,0 +1,72 @@
+----------------------- INSTALLATION -----------------------
+sudo apt update
+sudo apt upgrade
+(* Pour vérifier que le dépôt apt est bien à jour *)
+sudo apt install build-essential libxml2-dev libncurses5-dev linux-headers-`uname -r` libsqlite3-dev libssl-dev libedit-dev uuid-dev libjansson-dev
+(* ` c'est Altgr+7 *)
+mkdir /usr/src/asterisk
+cd /usr/src/asterisk
+
+wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
+tar -xvzf asterisk-16-current.tar.gz
+
+cd asterisk-16.7.0                   (* La version peut être modifiée d'ici mardi mais ça m'étonnerait *)
+./configure --with-jansson-bundled
+make menuselect
+(* C'est là les commandes chiantes à faire avec les touches directionnelles. Concrètement il faut :
+        - Aller à la 17° ligne (Core Sound Packages), valider (Espace ou flèche de droite), descendre 47 fois (CORE-SOUNDS-FR-ULAW) et valider puis sortir (echap ou flèche de gauche).
+        - Aller à la 18° ligne (donc juste en dessous, c'est Music On Hold File Packages), descendre d'un, valider, descendre d'un et valider à nouveau puis sortir. (Ca deselectionne le premier (MOH-OPSOUND-WAV) et valide le second (MOH-OPSOUND-ULAW))
+        - Aller à la 19° ligne (donc juste en dessous, c'est Extras Sound Packages), descendre 20 fois (EXTRA-SOUNDS-FR-ULAW) et valider puis sortir.
+        - Sauvegarder ces modifications en appuyant sur s. (s quitte tout seul, la suite est à nouveau en ligne de commande)
+*)
+(* les make prennent du temps *)
+make
+make install
+make samples
+make config
+
+(*Ces lignes servent à lancer asterisk donc à effectuer une fois la config finie *)
+/etc/init.d/asterisk start
+sudo asterisk -rvvvv
+
+
+----------------------- CONFIGURATION -----------------------
+(* Il faut toujours être en sudo *)
+(* Pour la config, on y travaille. On connait les instructions à réaliser pour qu'un utilisateur puisse en appeler un autre sur le serveur de l'entreprise mais on n'a pas d'application téléphone. *)
+(* On save les anciennes configs et on les efface *)
+cp -a sip.conf sip.conf.old
+cp -a extensions.conf extensions.conf.old
+echo > extensions.conf
+echo > sip.conf
+
+(* Dans sip.conf *)
+[general]
+qualify = yes ; afficher les latences
+dtmfmode = auto ;frequences digitales
+context = local; groupe reliant les users
+disallow = all ;
+allow = ulwa ;
+allow = alaw ;
+------------------
+[user 1]
+host = dynamic ;connexion d'un lieu quelconque
+type = friend ; appeler et recevoir
+secret = 0000 ; password
+context = local
+------------------
+[user 2]
+host = dynamic ;connexion d'un lieu quelconque
+type = friend ; appeler et recevoir
+secret = 0000 ; password
+context = local
+
+(* on sort de sip.conf *)
+(* Dans extensions.conf *)
+[local]
+exten => _ _ _ _, 1, DIAL (SIP/user)  (* _ _ _ _ c'est le numéro de téléphone de user qui est enregistré avec context = local *)
+(* On sort de extensions.conf *)
+(* On lance le serveur asterisk PUIS on reload (à chaque fois qu'on modifie les paramètres, pour que les modifs soient prises en compte, il faut reload le serveur *)
+asterisk -rvvvv
+reload
+
+(* Pour appeler, il suffira, normalement, de rentrer le login (user 1) et le password sur un téléphone (mais on n'a pas pu tester pour le moment parce que le téléphone qui existait avant a disparu pour être remplacé par un autre mais ce dernier est moins facilement accessible) *)
