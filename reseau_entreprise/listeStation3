@@ -1,8 +1,8 @@
-parefeu -ebr1@120.0.48.3 //eth1 -ebr2@120.0.52.3 //eth2
-box  -ebr2@120.0.52.2 //eth1 -ebr3@192.168.0.12
-web -ebr1@120.0.48.4  //eth1
-dns -ebr1@120.0.48.5
-ftp -ebr1@120.0.48.7
-voip -ebr1@120.0.48.6
-user -ebr3@192.168.0.10
+cust.parefeu -ebr1@120.0.48.3 //eth1 -ebr2@120.0.52.3 //eth2
+dhcp.box  -ebr2@120.0.52.2 //eth1 -ebr3@192.168.1.2
+webb.web -ebr1@120.0.48.4  //eth1
+dnss.dns -ebr1@120.0.48.5
+cust.ftp -ebr1@120.0.48.7
+cust.voip -ebr1@120.0.48.6
+user.user -ebr3@192.168.1.3
 EndLine
