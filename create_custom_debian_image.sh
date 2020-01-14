@@ -12,7 +12,7 @@ sudo docker commit install debian_cust
 sudo docker stop install
 sudo docker rm install
 
-sudo docker run -dit --name install --privileged debian_custom;
+sudo docker run -dit --name install --privileged debian_cust;
 sudo docker exec install bash -c "
     apt-get update;
     apt-get install -y nginx;"
@@ -20,7 +20,7 @@ sudo docker commit install debian_webb
 sudo docker stop install
 sudo docker rm install
 
-sudo docker run -dit --name install --privileged debian_custom;
+sudo docker run -dit --name install --privileged debian_cust;
 sudo docker exec install bash -c "
     apt-get update;
     apt-get install -y quagga;
@@ -29,7 +29,7 @@ sudo docker commit install debian_ospf
 sudo docker stop install
 sudo docker rm install
 
-sudo docker run -dit --name install --privileged debian_custom;
+sudo docker run -dit --name install --privileged debian_cust;
 sudo docker exec install bash -c "
     apt-get update;
     apt-get install -y bind9 dnsutils;"
@@ -37,7 +37,7 @@ sudo docker commit install debian_dnss
 sudo docker stop install
 sudo docker rm install
 
-sudo docker run -dit --name install --privileged debian_custom;
+sudo docker run -dit --name install --privileged debian_cust;
 sudo docker exec install bash -c "
     apt-get update;
     apt-get install -y dnsmasq;"
@@ -45,7 +45,7 @@ sudo docker commit install debian_dhcp
 sudo docker stop install
 sudo docker rm install
 
-sudo docker run -dit --name install --privileged debian_custom;
+sudo docker run -dit --name install --privileged debian_cust;
 sudo docker exec install bash -c "
     apt update;
     apt install -y isc-dhcp-client;"
@@ -53,7 +53,7 @@ sudo docker commit install debian_user
 sudo docker stop install
 sudo docker rm install
 
-sudo docker run -dit --name install --privileged debian_custom;
+sudo docker run -dit --name install --privileged debian_cust;
 sudo docker exec install bash -c "
     apt update;
     apt install -y vsftpd"
