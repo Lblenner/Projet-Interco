@@ -24,4 +24,4 @@ mv pipework/pipework /usr/local/bin/pipework
 sudo service docker start
 docker pull debian
 
-./Run.sh
+./create_custom_debian_image.sh

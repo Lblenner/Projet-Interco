@@ -1,23 +1,9 @@
 #!/bin/bash
+sudo docker run -dit --name install --privileged debian_custom;
+sudo docker exec install bash -c "
+    apt update;
+    apt install -y vsftpd"
 
-while read line;
-do
-    set -- $line
-
-    echo $1
-
-    for word in $line
-    do
-
-        if [ ${word:0:1} = "-" ]
-        then
-            echo "$word $1"
-        fi
-        
-    done
-
-    echo $1
-     
-done < listeStation3
-
-tshark -i ethX -P
+sudo docker commit install debian_ftpp
+sudo docker stop install
+sudo docker rm install

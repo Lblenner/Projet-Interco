@@ -1,6 +1,7 @@
 ospf.RE -ibr1@120.0.51.2 //eth1
 ospf.RSE -ibr1@120.0.51.3 //eth1 -ibr3@120.0.49.3 //eth2
-ospf.RU -ibr1@120.0.51.4 //eth1 -ibr2@120.0.50.2 //eth2
+ospf.RU -ibr1@120.0.51.4 //eth1 -ibr2@120.0.50.2 //eth2 -brus@192.168.3.2
 ospf.RSU -ibr2@120.0.50.3 //eth1 -ibr3@120.0.49.2 //eth2
 ospf.RI -ibr1@120.0.51.5 //eth1 
+cust.wilduser -brus@192.168.3.3
 EndLine
