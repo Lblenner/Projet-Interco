@@ -8,9 +8,14 @@ sudo docker exec parefeu bash -c "ip route del default;
 
 
 #Redirection vers et depuis l'interface indiqué
-sudo iptables -t nat -A POSTROUTING --out-interface $1 -j MASQUERADE  
-sudo iptables -A FORWARD --in-interface br-$(docker network ls --filter name=bbb --quiet) -j ACCEPT
+sudo iptables -t nat -A POSTROUTING --out-interface $1 -j MASQUERADE; 
+sudo iptables -A FORWARD --in-interface br-$(docker network ls --filter name=bbb --quiet) -j ACCEPT;
 
-sudo iptables -t nat -A POSTROUTING --out-interface br-$(docker network ls --filter name=bbb --quiet) -j MASQUERADE  
-sudo iptables -A FORWARD --in-interface $1 -j ACCEPT
+sudo iptables -t nat -A POSTROUTING --out-interface br-$(docker network ls --filter name=bbb --quiet) -j MASQUERADE;
+sudo iptables -A FORWARD --in-interface $1 -j ACCEPT;
+
+
+#sudo iptables -A FORWARD -i wlan1 -o wlan0 -j ACCEPT
+#sudo iptables -A FORWARD -i wlan0 -o wlan1 -m state --state ESTABLISHED,RELATED \
+         -j ACCEPT
 

@@ -4,7 +4,7 @@ while read line;
 do
     set -- $line
     
-    sudo docker network create -d macvlan --subnet $2 $1
+    sudo docker network create --subnet $2 $1
 
 done < listeBridge3
 

@@ -9,3 +9,5 @@ $TTL    604800
 @       IN      NS      ns.boulgour.fr.
 ns      IN      A       120.0.48.5
 www     IN      A       120.0.48.4
+ftp     IN      A       120.0.48.7
+voip    IN      A       120.0.48.6
