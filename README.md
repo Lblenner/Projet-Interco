@@ -1,5 +1,9 @@
 # Projet-Interco
 
+Projet scolaire, simulation d'un as sous docker. Utilisation de ospf, dhcp et autres services.
+
+## Utiliation
+
 Utilisez ./install pour installer docker. Vous pouvez aussi installer docker de votre coté si ça ne marche pas ou si vous avez envie. 
 
 Les fichiers ici représente la zone entreprise. Vous avez la liste des machines dans ListStation3.
